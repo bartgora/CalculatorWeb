@@ -1,12 +1,56 @@
 .mainWindow{
 	position: fixed;
-	top:50%;
+	top:25%;
 	left:50%;
-	margin-top: -50px;
-	margin-left:-50px;
-	height: 10%;
-	width: 10%;
+	height: 120px;
+	width: 800px;
 	border: ridge;
 	border-color: black;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	background-color:rgba(192,192,192,0.3);
 }
 
+.mainWindow table {
+	width: 800px;
+}
+
+tr th{
+	text-align: left;
+}
+input[type="text"] {
+	width: 390px;
+}
+
+#header{
+	background-color:rgba(192,192,192,0.3);
+	display: block;
+	font-size: 300%;
+	height: 100px;
+	text-decoration: bold
+}
+#windowTitle{
+	background-color:rgba(0,0,255,0.3);
+}
+
+.errors{
+	position: fixed;
+	top:50%;
+	left:50%;
+	height: 100px;
+	width: 800px;
+	border: ridge;
+	border-color: red;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	background-color:rgba(192,192,192,0.3);
+	
+}
+.errors table{
+	width: 800px;
+}
+
+#errorTitle{
+	background-color:rgba(255,0,0,0.3);
+	
+}

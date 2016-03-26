@@ -4,27 +4,27 @@ import org.springframework.http.HttpStatus;
 
 public class ErrorResponse {
 
-    private int code;
-    private String message;
+    private int status;
+    private String error;
 
-    public ErrorResponse(HttpStatus status, String message) {
-        this.code = status.value();
-        this.message = message;
+    public ErrorResponse(HttpStatus status, String error) {
+        this.status = status.value();
+        this.error = error;
     }
 
-    public int getCode() {
-        return code;
+    public int getStatus() {
+        return status;
     }
 
-    public void setCode(int code) {
-        this.code = code;
+    public void setStatus(int status) {
+        this.status = status;
     }
 
-    public String getMessage() {
-        return message;
+    public String getError() {
+        return error;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setError(String error) {
+        this.error = error;
     }
 }
