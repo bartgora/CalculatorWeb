@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class CalculatorViewController {
 
-    @RequestMapping("/calculator")
-    String getHello(){
+    @RequestMapping("/")
+    String calculator(){
         return "calculator";
     }
 }
