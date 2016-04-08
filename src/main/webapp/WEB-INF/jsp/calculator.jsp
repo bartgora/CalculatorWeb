@@ -44,5 +44,13 @@
 	</table>
 </div>
 
+<div class="yellow-notes-right">
+		RPN Library works with:</br>
+		+, -, *, /, , ^ (power)</br>
+		You can also use functions:</br>
+		sin(), cos(), tg(), ctg()</br>
+	
+</div>
+
 </body>
 </html>
