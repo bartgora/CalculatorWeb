@@ -15,7 +15,7 @@
 <div class="mainWindow">
 	<table>
 		<tr>
-		<th colspan = "2" id="windowTitle">RPNLibrary 2.0</th>
+		<th colspan = "2" id="windowTitle">RPNLibrary 3.0.0</th>
 		</tr>
 		<tr>
 			<th>Equation</th>
