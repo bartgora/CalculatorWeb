@@ -1,5 +1,14 @@
 $(function(){
 	$(".errors").hide();
+	$("#submitButton").prop('disabled', 'true');
+
+	$("#source").change(function(){
+	        if($(this).val().length != 0){
+	            $("#submitButton").prop('disabled', null);
+	        }else{
+	            $("#submitButton").prop('disabled', 'true');
+	        }
+	 })
 });
 
 
