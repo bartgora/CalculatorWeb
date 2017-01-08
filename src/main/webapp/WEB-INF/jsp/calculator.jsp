@@ -25,7 +25,7 @@
 			<td><input type="text" id="source"/></td>
 			<td><input type="text" id="result" readonly/></td>
 		<tr>
-			<td colspan="2" align="right"> <input type="button" onclick="calculate()" value="Execute"/></td>
+			<td colspan="2" align="right"> <input id="submitButton" type="button" onclick="calculate()" value="Execute"/></td>
 		<tr>
 		</tr>
 	</table>
