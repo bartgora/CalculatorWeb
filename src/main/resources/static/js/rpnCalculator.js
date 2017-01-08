@@ -2,7 +2,7 @@ $(function(){
 	$(".errors").hide();
 	$("#submitButton").prop('disabled', 'true');
 
-	$("#source").change(function(){
+	$("#source").keyup(function(){
 	        if($(this).val().length != 0){
 	            $("#submitButton").prop('disabled', null);
 	        }else{
@@ -13,7 +13,7 @@ $(function(){
 
 
 function calculate(){
-	var source = $("#source").val();
+	var source = encodeURIComponent($("#source").val());
 	$(".errors").hide();
 	$.ajax({
 		url: '/calculate/'+source,
