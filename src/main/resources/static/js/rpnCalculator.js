@@ -1,15 +1,17 @@
 $(function(){
 	$(".errors").hide();
 	$("#submitButton").prop('disabled', 'true');
+	$("#source").keyup(switchButton);
+	$("#source").change(switchButton);
+});
 
-	$("#source").keyup(function(){
+ var switchButton = function(){
 	        if($(this).val().length != 0){
 	            $("#submitButton").prop('disabled', null);
 	        }else{
 	            $("#submitButton").prop('disabled', 'true');
 	        }
-	 })
-});
+}
 
 
 function calculate(){
