@@ -23,8 +23,8 @@
 			<th>Result</th>
 		</tr>
 		<tr>
-			<td><input type="text" id="source"/></td>
-			<td><input type="text" id="result" readonly/></td>
+			<td><input type="text" id="source" ng-model="source"/></td>
+			<td><input type="text" id="result" readonly ng-model="result"/></td>
 		<tr>
 			<td colspan="2" align="right"> <input id="submitButton" type="button" ng-click="calculate()" value="Execute"/></td>
 		<tr>
