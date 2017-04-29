@@ -11,6 +11,9 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import pl.bgora.calculator.web.Main;
 import pl.bgora.calculator.web.rest.RestCalculatorController;
+import pl.bgora.calculator.web.util.WebCalculatorDecorator;
+
+import javax.annotation.Resource;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -22,10 +25,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class RestCalculatorControllerTest {
 
     private MockMvc mvc;
+    @Resource
+    private WebCalculatorDecorator webCalculatorDecorator;
 
     @Before
     public void setup() {
-        mvc = MockMvcBuilders.standaloneSetup(new RestCalculatorController()).build();
+        mvc = MockMvcBuilders.standaloneSetup(new RestCalculatorController(webCalculatorDecorator)).build();
     }
 
     @Test

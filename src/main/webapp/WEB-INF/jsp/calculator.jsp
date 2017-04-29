@@ -28,6 +28,12 @@
 			<td colspan="2" align="right"> <input id="submitButton" type="button" onclick="calculate()" value="Execute"/></td>
 		<tr>
 		</tr>
+		<tr>
+		    <td>
+				RPN Library works with: +, -, *, div, , ^ (power)</br>
+        		You can also use functions: sin(), cos(), tg(), ctg()</br>
+		    </td>
+		</tr>
 	</table>
 </div>
 <div class="errors">
@@ -44,13 +50,6 @@
 	</table>
 </div>
 
-<div class="yellow-notes-right">
-		RPN Library works with:</br>
-		+, -, *, /, , ^ (power)</br>
-		You can also use functions:</br>
-		sin(), cos(), tg(), ctg()</br>
-	
-</div>
 
 </body>
 </html>

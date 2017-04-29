@@ -2,7 +2,7 @@
 	position: fixed;
 	top:25%;
 	left:50%;
-	height: 120px;
+	height: 140px;
 	width: 800px;
 	border: ridge;
 	border-color: black;
@@ -53,13 +53,4 @@ input[type="text"] {
 #errorTitle{
 	background-color:rgba(255,0,0,0.3);
 	
-}
-
-.yellow-notes-right{
-	position: fixed;
-	top:120px;
-	right:0.5%;
-	height: 400px;
-	width: 400px;
-	background-color:rgba(255,228,181,0.7);
 }

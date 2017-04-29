@@ -1,19 +1,21 @@
 $(function(){
 	$(".errors").hide();
 	$("#submitButton").prop('disabled', 'true');
+	$("#source").keyup(switchButton);
+	$("#source").change(switchButton);
+});
 
-	$("#source").change(function(){
+ var switchButton = function(){
 	        if($(this).val().length != 0){
 	            $("#submitButton").prop('disabled', null);
 	        }else{
 	            $("#submitButton").prop('disabled', 'true');
 	        }
-	 })
-});
+}
 
 
 function calculate(){
-	var source = $("#source").val();
+	var source = encodeURIComponent($("#source").val());
 	$(".errors").hide();
 	$.ajax({
 		url: '/calculate/'+source,
