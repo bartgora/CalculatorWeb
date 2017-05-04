@@ -8,9 +8,10 @@ app.controller('controller', function($scope, $http){
         $http.get('/calculate/' + $scope.source)
                 .then(function(response){
                     $scope.result = response.data.result;
+                    $scope.showErrors = false;
                 }, function(error){
-                        $scope.errorCode = error.status
-                        $scope.errorMessage = error.error;
+                        $scope.errorCode = error.data.status;
+                        $scope.errorMessage = error.data.error;
                         $scope.showErrors = true;
                 }
                 );

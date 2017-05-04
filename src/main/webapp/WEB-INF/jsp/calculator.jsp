@@ -43,10 +43,10 @@
 			<th colspan="2" id="errorTitle">Error</th>
 		</tr>
 		<tr>
-			<td><span id="errorCode"></span></td>
+			<td><span id="errorCode" >{{errorCode}}</span></td>
 		</tr>
 		<tr>
-			<td><span id="errorMessage"></span></td>
+			<td><span id="errorMessage"> {{errorMessage}}</span></td>
 		</tr>
 	</table>
 </div>
