@@ -23,10 +23,10 @@
 			<th>Result</th>
 		</tr>
 		<tr>
-			<td><input type="text" id="source" ng-model="source"/></td>
+			<td><input type="text" id="source" ng-model="source" ng-chane="sourceChanged()"/></td>
 			<td><input type="text" id="result" readonly ng-model="result"/></td>
 		<tr>
-			<td colspan="2" align="right"> <input id="submitButton" type="button" ng-click="calculate()" value="Execute"/></td>
+			<td colspan="2" align="right"> <input id="submitButton" type="button" ng-click="calculate()" value="Execute" ng-disabled="!source"/></td>
 		<tr>
 		</tr>
 		<tr>

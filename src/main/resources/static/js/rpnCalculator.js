@@ -4,7 +4,7 @@ app.controller('controller', function($scope, $http){
 
         $scope.showErrors = false;
         $scope.calculate = function(){
-        console.log($scope.source)
+
         $http.get('/calculate/' + $scope.source)
                 .then(function(response){
                     $scope.result = response.data.result;
@@ -16,4 +16,6 @@ app.controller('controller', function($scope, $http){
                 }
                 );
         }
+
+
 })
