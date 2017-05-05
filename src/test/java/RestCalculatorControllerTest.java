@@ -13,8 +13,6 @@ import pl.bgora.calculator.web.Main;
 import pl.bgora.calculator.web.rest.RestCalculatorController;
 import pl.bgora.calculator.web.util.WebCalculatorDecorator;
 
-import javax.annotation.Resource;
-
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -25,11 +23,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class RestCalculatorControllerTest {
 
     private MockMvc mvc;
-    @Resource
-    private WebCalculatorDecorator webCalculatorDecorator;
+
+    WebCalculatorDecorator webCalculatorDecorator;
 
     @Before
     public void setup() {
+        webCalculatorDecorator = new WebCalculatorDecorator();
         mvc = MockMvcBuilders.standaloneSetup(new RestCalculatorController(webCalculatorDecorator)).build();
     }
 
@@ -41,6 +40,16 @@ public class RestCalculatorControllerTest {
     @Test
     public void testCalculate0() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/calculate/0")).andExpect(status().isOk()).andExpect(content().string("{\"input\":\"0\",\"result\":\"0\"}"));
+    }
+
+    @Test
+    public void testCalculateDiv() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/calculate/10div2")).andExpect(status().isOk()).andExpect(content().string("{\"input\":\"10div2\",\"result\":\"5\"}"));
+    }
+
+    @Test
+    public void testMutiply() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/calculate/10*2")).andExpect(status().isOk()).andExpect(content().string("{\"input\":\"10*2\",\"result\":\"20\"}"));
     }
 
 }
