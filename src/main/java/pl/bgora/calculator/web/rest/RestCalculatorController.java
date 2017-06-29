@@ -1,5 +1,6 @@
 package pl.bgora.calculator.web.rest;
 
+import com.github.bgora.rpnlibrary.exceptions.RPNException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import pl.bgora.calculator.web.model.CalculationResponse;
 import pl.bgora.calculator.web.model.ErrorResponse;
 import pl.bgora.calculator.web.util.WebCalculatorDecorator;
-import pl.bgora.rpn.exceptions.RPNException;
+
 
 import java.math.BigDecimal;
 
