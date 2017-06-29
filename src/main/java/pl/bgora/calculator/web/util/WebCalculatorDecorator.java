@@ -1,10 +1,11 @@
 package pl.bgora.calculator.web.util;
 
+import com.github.bgora.rpnlibrary.Calculator;
+import com.github.bgora.rpnlibrary.exceptions.NoSuchFunctionFound;
+import com.github.bgora.rpnlibrary.exceptions.WrongArgumentException;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
-import pl.bgora.rpn.Calculator;
-import pl.bgora.rpn.exceptions.NoSuchFunctionFound;
-import pl.bgora.rpn.exceptions.WrongArgumentException;
+
 
 import java.math.BigDecimal;
 @Component
