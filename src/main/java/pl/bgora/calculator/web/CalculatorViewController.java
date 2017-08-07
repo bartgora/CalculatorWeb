@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CalculatorViewController {
 
     @RequestMapping("/")
-    String calculator(){
+    public String calculator(){
         return "calculator";
     }
 }

@@ -34,7 +34,7 @@ public class RestCalculatorControllerTest {
 
     @Test
     public void testCalculate() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/calculate/1+1")).andExpect(status().isOk()).andExpect(content().string("{\"input\":\"1+1\",\"result\":\"2\"}"));
+        mvc.perform(MockMvcRequestBuilders.get("/calculate/1+1")).andExpect(status().isOk()).andExpect(content().string("{\"input\":\"1+1\",\"result\":\"2.0\"}"));
     }
 
     @Test
@@ -44,12 +44,12 @@ public class RestCalculatorControllerTest {
 
     @Test
     public void testCalculateDiv() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/calculate/10div2")).andExpect(status().isOk()).andExpect(content().string("{\"input\":\"10div2\",\"result\":\"5\"}"));
+        mvc.perform(MockMvcRequestBuilders.get("/calculate/10div2")).andExpect(status().isOk()).andExpect(content().string("{\"input\":\"10div2\",\"result\":\"5.0\"}"));
     }
 
     @Test
     public void testMutiply() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/calculate/10*2")).andExpect(status().isOk()).andExpect(content().string("{\"input\":\"10*2\",\"result\":\"20\"}"));
+        mvc.perform(MockMvcRequestBuilders.get("/calculate/10*2")).andExpect(status().isOk()).andExpect(content().string("{\"input\":\"10*2\",\"result\":\"20.0\"}"));
     }
 
 }
