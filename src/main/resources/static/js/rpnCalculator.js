@@ -1,20 +1,34 @@
-var app = angular.module('CalculatorWeb', []);
+$(function(){
+	$(".errors").hide();
+	$("#submitButton").prop('disabled', 'true');
 
-app.controller('controller', function($scope, $http){
+	$("#source").change(function(){
+	        if($(this).val().length != 0){
+	            $("#submitButton").prop('disabled', null);
+	        }else{
+	            $("#submitButton").prop('disabled', 'true');
+	        }
+	 })
+});
 
-        $scope.showErrors = false;
-        $scope.calculate = function(){
 
-        $http.get('/calculate/' + $scope.source)
-                .then(function(response){
-                    $scope.result = response.data.result;
-                    $scope.showErrors = false;
-                }, function(error){
-                        $scope.errorCode = error.data.status;
-                        $scope.errorMessage = error.data.error;
-                        $scope.showErrors = true;
-                }
-                );
-        }
-
-})
+function calculate(){
+	var source = $("#source").val();
+	$(".errors").hide();
+	$.ajax({
+		url: '/calculate/'+source,
+		datatype: "json",
+		success: function(response){
+			$("#result").val(response.result);
+		},
+		error: function(error){
+			console.log(error)
+			var message = $.parseJSON(error.responseText).error;
+			var code = $.parseJSON(error.responseText).status;
+			$("#errorCode").text(code);
+			$("#errorMessage").text(message);
+			$(".errors").show();
+			
+		}
+	})
+}

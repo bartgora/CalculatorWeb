@@ -11,9 +11,8 @@ import java.math.BigDecimal;
 @Component
 public class WebCalculatorDecorator {
 
-
-    public BigDecimal calculate(String input) throws WrongArgumentException, NoSuchFunctionFound {
-        String replaced = StringUtils.replace(input, "div", "/");
+    public BigDecimal calculate(final String input) throws WrongArgumentException, NoSuchFunctionFound {
+        final String replaced = StringUtils.replace(input, "div", "/");
         return Calculator.createDefaultCalculator().calculate(replaced);
     }
 

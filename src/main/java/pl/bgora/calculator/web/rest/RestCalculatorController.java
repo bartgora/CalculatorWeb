@@ -12,7 +12,6 @@ import pl.bgora.calculator.web.model.CalculationResponse;
 import pl.bgora.calculator.web.model.ErrorResponse;
 import pl.bgora.calculator.web.util.WebCalculatorDecorator;
 
-
 import java.math.BigDecimal;
 
 @RestController
@@ -25,7 +24,6 @@ public class RestCalculatorController {
         this.webCalculatorDecorator = webCalculatorDecorator;
     }
 
-
     @RequestMapping("/calculate/{input}")
     public CalculationResponse calculate(@PathVariable String input) throws RPNException {
         CalculationResponse response = new CalculationResponse();
@@ -34,7 +32,6 @@ public class RestCalculatorController {
         response.setResult(calculationResult.toString());
         return response;
     }
-
 
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
     @ExceptionHandler(RPNException.class)
