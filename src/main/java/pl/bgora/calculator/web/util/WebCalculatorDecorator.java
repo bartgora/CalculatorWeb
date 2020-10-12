@@ -13,7 +13,7 @@ public class WebCalculatorDecorator {
 
     public BigDecimal calculate(final String input) throws WrongArgumentException, NoSuchFunctionFound {
         final String replaced = StringUtils.replace(input, "div", "/");
-        return Calculator.createDefaultCalculator().calculate(replaced);
+        return Calculator.createCalculator().calculate(replaced);
     }
 
 }

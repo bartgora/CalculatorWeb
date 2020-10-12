@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import pl.bgora.calculator.web.model.CalculationResponse;
 import pl.bgora.calculator.web.model.ErrorResponse;
 import pl.bgora.calculator.web.util.WebCalculatorDecorator;
+import reactor.core.publisher.Mono;
 
 import java.math.BigDecimal;
 
@@ -25,12 +26,10 @@ public class RestCalculatorController {
     }
 
     @RequestMapping("/calculate/{input}")
-    public CalculationResponse calculate(@PathVariable String input) throws RPNException {
-        CalculationResponse response = new CalculationResponse();
-        response.setInput(input);
-        BigDecimal calculationResult = webCalculatorDecorator.calculate(input);
-        response.setResult(calculationResult.toString());
-        return response;
+    public Mono<CalculationResponse> calculate(@PathVariable String input) throws RPNException {
+        return Mono.just(webCalculatorDecorator.calculate(input))
+                .map(BigDecimal::toString)
+                .map(result-> new CalculationResponse(input, result));
     }
 
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
