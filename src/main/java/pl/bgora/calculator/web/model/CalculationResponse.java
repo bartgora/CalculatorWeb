@@ -5,6 +5,11 @@ public class CalculationResponse {
     private String input;
     private String result;
 
+    public CalculationResponse(final String input, final String result) {
+        this.input = input;
+        this.result = result;
+    }
+
     public String getInput() {
         return input;
     }

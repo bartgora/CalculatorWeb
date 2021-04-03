@@ -1,63 +1,72 @@
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.mock.web.MockServletContext;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.web.reactive.server.WebTestClient;
 import pl.bgora.calculator.web.Main;
 import pl.bgora.calculator.web.rest.RestCalculatorController;
 import pl.bgora.calculator.web.util.WebCalculatorDecorator;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = Main.class)
-@ContextConfiguration(classes = MockServletContext.class)
-@WebAppConfiguration
+@SpringBootTest(classes = Main.class)
 public class RestCalculatorControllerTest {
 
-    private MockMvc mvc;
 
-    private WebCalculatorDecorator webCalculatorDecorator;
+    private WebTestClient webClient;
 
-    @Before
+    @BeforeEach
     public void setup() {
-        webCalculatorDecorator = new WebCalculatorDecorator();
-        mvc = MockMvcBuilders.standaloneSetup(new RestCalculatorController(webCalculatorDecorator)).build();
+        webClient = WebTestClient.bindToController(new RestCalculatorController(new WebCalculatorDecorator())).build();
     }
 
     @Test
     public void testCalculate() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/calculate/1+1"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("{\"input\":\"1+1\",\"result\":\"2.0\"}"));
+        webClient.get().uri("/calculate/1+1")
+                .exchange()
+                .expectBody().json("""
+                {
+                    'input': '1+1',
+                    'result': '2.00'
+                }
+                """
+        );
     }
 
     @Test
     public void testCalculate0() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/calculate/0"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("{\"input\":\"0\",\"result\":\"0\"}"));
+        webClient.get().uri("/calculate/0")
+                .exchange()
+                .expectBody().json("""
+                {
+                    'input': '0',
+                    'result': '0.00'
+                }
+                """
+        );
     }
 
     @Test
     public void testCalculateDiv() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/calculate/10div2"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("{\"input\":\"10div2\",\"result\":\"5.0\"}"));
+        webClient.get().uri("/calculate/10div2")
+                .exchange()
+                .expectBody().json("""
+                {
+                    'input': '10div2',
+                    'result': '5.00'
+                }
+                """
+        );
     }
 
     @Test
-    public void testMutiply() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/calculate/10*2"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("{\"input\":\"10*2\",\"result\":\"20.0\"}"));
+    public void testMultiply() throws Exception {
+        webClient.get().uri("/calculate/10*2")
+                .exchange()
+                .expectBody().json("""
+                {
+                    'input': '10*2',
+                    'result': '20.00'
+                }
+                """
+        );
     }
 
 }
