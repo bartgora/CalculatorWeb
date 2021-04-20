@@ -1,4 +1,4 @@
-﻿﻿<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <html>
 <head>
@@ -15,7 +15,7 @@
 <div class="mainWindow">
 	<table>
 		<tr>
-		<th colspan = "2" id="windowTitle">RPNLibrary 3.0.0</th>
+		<th colspan = "2" id="windowTitle">RPNLibrary 4.0.0</th>
 		</tr>
 		<tr>
 			<th>Equation</th>
