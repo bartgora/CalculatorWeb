@@ -19,7 +19,7 @@ tr th{
 	text-align: left;
 }
 input[type="text"] {
-	width: 390px;
+	width: 388px;
 }
 
 #header{
@@ -27,7 +27,6 @@ input[type="text"] {
 	display: block;
 	font-size: 300%;
 	height: 100px;
-	text-decoration: bold
 }
 #windowTitle{
 	background-color:rgba(0,0,255,0.3);
